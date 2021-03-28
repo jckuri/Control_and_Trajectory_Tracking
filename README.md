@@ -39,13 +39,13 @@ Throttle Plot<br/>
 
 ## (Optional) What would you do to improve the PID controller? This is an open question, the coherence and justification of the answer is valued. 
 
-# Longer Demo
-
-[SDCE ND] Control and Trajectory Tracking for Autonomous Vehicles (Demo 2)<br/>
-https://youtu.be/Tofv9COgiks
-![Demo](/images/demo.png)
-
 # Mathematical explanation of my vectorial fields
 
 Vectorial fields for steering and throttle:<br/>
 ![Vectorial fields for steering and throttle](/images/vectorial_fields.png)
+
+# Longer Demo (11 minutes)
+
+[SDCE ND] Control and Trajectory Tracking for Autonomous Vehicles (Demo 2)<br/>
+https://youtu.be/Tofv9COgiks
+![Demo](/images/demo.png)
