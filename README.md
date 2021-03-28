@@ -2,7 +2,7 @@
 Control and Trajectory Tracking for Autonomous Vehicles
 
 Screenshot after successfully installing and running the default code:
-![Screenshot after successfully installing and running the default code](/plots/screenshot_01.png)
+![Screenshot after successfully installing and running the default code](/images/screenshot_01.png)
 
 [SDCE ND] Control and Trajectory Tracking for Autonomous Vehicles (Short Demo with Plots)<br/>
 https://youtu.be/GwLt8-gqQ4A
@@ -19,4 +19,4 @@ https://youtu.be/Tofv9COgiks
 ![Demo](/images/demo.png)
 
 Vectorial fields for steering and throttle:
-![Vectorial fields for steering and throttle](/plots/vectorial_fields.png)
+![Vectorial fields for steering and throttle](/images/vectorial_fields.png)
