@@ -360,7 +360,7 @@ https://youtu.be/Tofv9COgiks**
 
 # Known Bugs
 
-These bugs are a big source of headaches. I hope you paid attention to them and correct them. So, students won't experience the frustration and blockages I had.
+These bugs are a big source of headaches. I hope you will pay attention to them and will correct them. So, students won't experience the frustration and blockages I had.
 
 ## The car location is unknown
 
