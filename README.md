@@ -8,10 +8,10 @@ In this project, you apply the skills you have acquired in this course to design
 
 # Installation Prerequisites
 
-Install make:
+Install make:<br/>
 https://www.gnu.org/software/make/
 
-Install GCC:
+Install GCC:<br/>
 https://www.gnu.org/software/gcc/
 
 Install Conda.<br/>
