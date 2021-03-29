@@ -8,9 +8,44 @@ In this project, you apply the skills you have acquired in this course to design
 
 # Installation
 
-Instructions...
+Download this github repository in your local drive: 
+https://github.com/jckuri/Control_and_Trajectory_Tracking/archive/refs/heads/main.zip
 
-Screenshot after successfully installing and running the default code without behavior:<br/>
+Unzip the file `Control_and_Trajectory_Tracking-main.zip`
+CD into the folder `Control_and_Trajectory_Tracking-main`
+Run the script `copy_files.sh`:
+```
+sh copy_files.sh
+```
+
+The script `copy_files.sh` basically clones this project from the Udacity repository and copies all the files I modified into the corresponding folders inside the github repository in an automatic way:
+```
+git clone https://github.com/udacity/nd013-c6-control-starter.git
+cp code/compile_pid_controller.sh nd013-c6-control-starter/project/
+cp code/simulatorAPI.py nd013-c6-control-starter/project/
+cp code/plot_pid_info.py nd013-c6-control-starter/project/
+cp code/main.cpp nd013-c6-control-starter/project/pid_controller/
+cp code/pid_controller.cpp nd013-c6-control-starter/project/pid_controller/
+cp code/pid_controller.h nd013-c6-control-starter/project/pid_controller/
+```
+
+First, you must install Conda.
+https://docs.conda.io/en/latest/
+
+Install Python 3.7:
+```
+conda create -n SDC python=3.6
+conda activate SDC
+```
+
+Install the Carla Simulator:
+https://carla.org/
+https://carla.readthedocs.io/en/latest/start_quickstart/
+
+sh install_project.sh 
+
+
+**Screenshot after successfully installing and running the default code without behavior:**<br/>
 ![Screenshot after successfully installing and running the default code](/images/screenshot_01.png)
 
 # answers.txt
