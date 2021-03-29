@@ -21,7 +21,7 @@ Install the Carla Simulator:<br/>
 https://carla.org/<br/>
 https://carla.readthedocs.io/en/latest/start_quickstart/<br/>
 
-If this error appear when running the Carla Simulator, don't forget to correctly configure the variable `PYTHONPATH`.<br/>
+If this error appears when running the Carla Simulator, don't forget to correctly configure the variable `PYTHONPATH`.<br/>
 ModuleNotFoundError: No module named 'carla'<br/>
 https://github.com/carla-simulator/scenario_runner/issues/367#issuecomment-645187463<br/>
 In my case, the variable `PYTHONPATH` is:<br/>
