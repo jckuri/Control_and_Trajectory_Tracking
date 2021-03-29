@@ -286,7 +286,7 @@ We need to speed up the simulation. Perhaps, by turning off the graphical part o
 
 My approach of the vectorial fields with the average waypoint is better than my other approach of the vectorial fields with the closest waypoint. However, I have a new approach to test, if I had time, which is based on other vectorial fields with the smooth trajectories formed by the closest waypoints. I also didn't test having a memory of the waypoints. So that, if the car is way behind the waypoints, the car can recover without losing the track.
 
-# Mathematical explanation of my vectorial fields
+# Mathematical explanation of the vectorial fields
 
 In dynamical systems and differential equations, PID controllers are easier to calibrate when goal states are based on vectorial fields. So, I programmed 2 vectorial fields to program the 2 PID controllers for the steering and the throttle of self-driving cars.
 
