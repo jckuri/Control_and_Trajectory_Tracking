@@ -167,7 +167,7 @@ https://youtu.be/GwLt8-gqQ4A
 
 As you can see in the video, the car experiences some turbulence at the beginning, due to the nature of the PID controllers that I will explain later. In brief, the car experiences some turbulence when the car is behind the waypoints. As soon as the car reaches the waypoints, it gets more control over the situation. The car also experienced an offset when turning the corner at the end of the street. After that, the car moves smoothly and in a controlled way.
 
-Steering Plot<br/>
+**Steering Plot**<br/>
 ![Steering Plot](/plots/steering.png)
 
 In the Steering Plot, there are 2 curves: The Error Steering in blue and the Steering Output in orange. The Error Steering is the difference between the current steering and the desired steering suggested by the vectorial field I describe below. Basically, the vectorial field suggests the steering should be the flow direction from the average waypoint to the first (last) waypoint. The vectorial field also creates an ortonormal base from such flow direction and suggest a steering compensation if the projected position of the car is in the left or right cuadrants of such ortonormal base.
@@ -176,7 +176,7 @@ The Error Steering is somewhat low with few disturbances in the conflicting part
 
 The big bump near the iteration 100 occurs when the car turns right and there is a offset. The car compensates the offset in a proportionate way but it overshoots a little bit. And it keeps compensating and overshooting a little bit until it recovers the control fully. Throughout the small trajectory, there are small bumps when the car turns a little bit. When the car drives straight, it recovers the control fully.
 
-Throttle Plot<br/>
+**Throttle Plot**<br/>
 ![Throttle Plot](/plots/throttle.png)
 
 In the Throttle Plot, there are 3 curves: The Error Throttle in blue, the Throttle Output in green, and the Brake Output in orange. The Error Throttle is the difference between the current speed and the desired speed suggested by the vectorial field I describe below. Basically, the vectorial field suggests the speed should be the average speed of the average waypoint. The vectorial field also creates an ortonormal base from the flow direction and suggest a speed compensation if the projected position of the car is in the ahead or behind cuadrants of such ortonormal base.
