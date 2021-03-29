@@ -13,7 +13,7 @@ https://docs.conda.io/en/latest/
 
 Install Python 3.7:<br/>
 ```
-conda create -n SDC python=3.6
+conda create -n SDC python=3.7
 conda activate SDC
 ```
 
