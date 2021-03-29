@@ -150,7 +150,7 @@ Then the following window must appear indicating that you have successfully inst
 **Screenshot after successfully installing and running the default code without behavior**<br/>
 ![Screenshot after successfully installing and running the default code](/images/screenshot_01.png)
 
-If this window does not appear and errors appear instead, it means that some **Installation Steps** or some **Installation Prerequisites** were skipped. Please, read the instructions carefully. Perhaps the instructions in the **Installation Prerequisites** are not comprehensive and there are some missing libraries. If so, google about "how to install <the missing libraries>" in the error messages.<br/>
+If this window does not appear and errors appear instead, it means that some **Installation Steps** or some **Installation Prerequisites** were skipped. Please, read the instructions carefully. Perhaps the instructions in the **Installation Prerequisites** are not comprehensive and there are some missing libraries. If so, google about how to install the missing libraries in the error messages.<br/>
 
 # answers.txt
 
