@@ -264,7 +264,7 @@ As you can see, I tuned the PID parameters by trials and errors, the oldest opti
   pid_throttle.Init(0.35, 0.01, 0.2, max_throttle, max_break); //25 minutes!
 ```
 
-How would you design a way to automatically tune the PID parameters? Obviously, we need to speed up the simulation. Perhaps, by turning off the graphical part of the simulation, it could be speed up while preserving its realism and accuracy. In a simulation, time can be stretched and compressed without modifying the outcome. In that way, we could perform tons of experiments while varying the parameters. We should select the parameters whose RMSE is smaller. We can start from multiple hyperpoints and see where they ultimately land, in local optima. From all local optima, we can select the best optimum. That's called evolution by natural selection.
+How would you design a way to automatically tune the PID parameters? Obviously, we need to speed up the simulation. Perhaps, by turning off the graphical part of the simulation, it could be sped up while preserving its realism and accuracy. In a simulation, time can be stretched and compressed without modifying the outcome. In that way, we could perform tons of experiments while varying the parameters. We should select the parameters whose RMSE is smaller. We can start from multiple hyperpoints and see where they ultimately land, in local optima. From all local optima, we can select the best optimum. That's called evolution by natural selection.
 
 ## PID controller is a model free controller, i.e. it does not use a model of the car. Could you explain the pros and cons of this type of controller? Find at least 2 pros and cons for model free versus model based.
 
