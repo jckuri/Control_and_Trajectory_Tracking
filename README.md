@@ -288,7 +288,13 @@ My approach of the vectorial fields with the average waypoint is better than my 
 
 # Mathematical explanation of my vectorial fields
 
-Vectorial fields for steering and throttle:<br/>
+In dynamical systems and differential equations, PID controllers are easier to calibrate when goal states are based on vectorial fields. So, I programmed 2 vectorial fields to program the 2 PID controllers for the steering and the throttle of self-driving cars.
+
+The Error Steering is the difference between the current steering and the desired steering suggested by the vectorial field I describe below. Basically, the vectorial field suggests the steering should be the flow direction from the average waypoint to the first (last) waypoint. The vectorial field also creates an ortonormal base from such flow direction and suggest a steering compensation if the projected position of the car is in the left or right cuadrants of such ortonormal base.
+
+The Error Throttle is the difference between the current speed and the desired speed suggested by the vectorial field I describe below. Basically, the vectorial field suggests the speed should be the average speed of the average waypoint. The vectorial field also creates an ortonormal base from the flow direction and suggest a speed compensation if the projected position of the car is in the ahead or behind cuadrants of such ortonormal base.
+
+**Vectorial fields for steering and throttle:**<br/>
 ![Vectorial fields for steering and throttle](/images/vectorial_fields.png)
 
 # Longer Demo (11 minutes)
@@ -299,4 +305,6 @@ https://youtu.be/Tofv9COgiks
 
 # Known Bugs
 
-blah
+1. Spirals and waypoints disappear and reappear in a discontinuous way, causing disorientation in the self-driving car.
+2. List index error when drawing spirals.
+3. Division by zero when waypoints gather to the same location.
