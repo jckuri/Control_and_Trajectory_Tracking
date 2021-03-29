@@ -305,6 +305,12 @@ https://youtu.be/Tofv9COgiks
 
 # Known Bugs
 
-1. Spirals and waypoints disappear and reappear in a discontinuous way, causing disorientation in the self-driving car.
-2. List index error when drawing spirals.
-3. Division by zero when waypoints gather to the same location.
+The car location is unknown. So, I had to send it.
+
+Spirals and waypoints disappear and reappear in a discontinuous way, causing disorientation in the self-driving car.
+
+Division by zero when waypoints gather to the same location.
+
+List index error when drawing spirals.
+
+
