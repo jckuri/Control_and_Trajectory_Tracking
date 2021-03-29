@@ -159,12 +159,18 @@ If this window does not appear and errors appear instead, it means that some **I
 
 ## Add the plots to your report and explain them (describe what you see)
 
+Given that the visibility of the plots deteriorates when the demos are too long, I decided to limit the demo to 1:35 minutes. Here is the demo from which I extracted the data of the Steering Plot and the Throttle Plot.
+
 [SDCE ND] Control and Trajectory Tracking for Autonomous Vehicles (Short Demo with Plots)<br/>
 https://youtu.be/GwLt8-gqQ4A
 ![Short demo with plots](/plots/short_demo_with_plots.png)
 
+As you can see in the video, the car experiments some turbulence at the begining, due to the nature of the PID controllers that I will explain later. In brief, the car experiments some turbulence when the car is behind the waypoints. As soon as the car reaches the waypoints, it gets more control over the situation. The car also experienced an offset when turning the corner at the end of the street. After that, the car moves smoothly and in a controlled way.
+
 Steering Plot<br/>
 ![Steering Plot](/plots/steering.png)
+
+
 
 Throttle Plot<br/>
 ![Throttle Plot](/plots/throttle.png)
