@@ -161,8 +161,8 @@ If this window does not appear and errors appear instead, it means that some **I
 
 Given that the visibility of the plots deteriorates when the demos are too long, I decided to limit the demo to 1:35 minutes. Here is the demo from which I extracted the data of the Steering Plot and the Throttle Plot.
 
-[SDCE ND] Control and Trajectory Tracking for Autonomous Vehicles (Short Demo with Plots)<br/>
-https://youtu.be/GwLt8-gqQ4A
+**[SDCE ND] Control and Trajectory Tracking for Autonomous Vehicles (Short Demo with Plots)<br/>
+https://youtu.be/GwLt8-gqQ4A**
 ![Short demo with plots](/plots/short_demo_with_plots.png)
 
 As you can see in the video, the car experiences some turbulence at the beginning, due to the nature of the PID controllers that I will explain later. In brief, the car experiences some turbulence when the car is behind the waypoints. As soon as the car reaches the waypoints, it gets more control over the situation. The car also experienced an offset when turning the corner at the end of the street. After that, the car moves smoothly and in a controlled way.
@@ -354,8 +354,8 @@ Notice that if the car is ahead of the first (last) waypoint or the average spee
 
 # Longer Demo (11 minutes)
 
-[SDCE ND] Control and Trajectory Tracking for Autonomous Vehicles (Demo 2)<br/>
-https://youtu.be/Tofv9COgiks
+**[SDCE ND] Control and Trajectory Tracking for Autonomous Vehicles (Demo 2)<br/>
+https://youtu.be/Tofv9COgiks**
 ![Demo](/images/demo.png)
 
 # Known Bugs
@@ -387,8 +387,8 @@ The car location is unknown. So, I had to send it in `simulatorAPI.py` and I had
 
 Spirals and waypoints disappear and reappear in a discontinuous way, pointing toward a totally different direction, causing disorientation in the self-driving car. This error is quite common and sporadic. I thought it was caused when the car gets apart from the waypoints. But I experienced the same bug when the car was quite aligned with the waypoints. So, I think this bug is yours, not mine. And you should correct this bug, which is super frustrating for students. If this bug didn't exist, my car could drive in an indefinite way, since my vectorial field solution is quite robust and can recover from almost any continuous problem, except from big discontinuities in the waypoints. I think this error occurs in junctions. So, pay attention to the code for junctions and also to the code for generating spirals.
 
-**[SDCE ND] Bug report: Spirals and waypoints disappear and reappear in a discontinuous way**<br/>
-**https://youtu.be/q70djixQsHY**<br/>
+**[SDCE ND] Bug report: Spirals and waypoints disappear and reappear in a discontinuous way<br/>
+https://youtu.be/q70djixQsHY**
 ![Spirals disappear](/images/spirals_disappear.png)
 
 ## Division by zero when waypoints gather to the same location
