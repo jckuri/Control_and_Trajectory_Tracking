@@ -354,6 +354,7 @@ class WayPoints {
     };
   }
   
+  // The explanation of this calculation is in the README.md file of the github repository, section "Mathematical explanation of my vectorial fields".
   Recommendation compute_recommendation(Vector2D *location, double current_angle, double current_speed, int n_spirals) {
     this->location = location;
     if(abs(avg_speed) < ALMOST_ZERO || n_spirals == 0) {
