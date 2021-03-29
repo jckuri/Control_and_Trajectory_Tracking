@@ -165,12 +165,12 @@ Given that the visibility of the plots deteriorates when the demos are too long,
 https://youtu.be/GwLt8-gqQ4A
 ![Short demo with plots](/plots/short_demo_with_plots.png)
 
-As you can see in the video, the car experiments some turbulence at the begining, due to the nature of the PID controllers that I will explain later. In brief, the car experiments some turbulence when the car is behind the waypoints. As soon as the car reaches the waypoints, it gets more control over the situation. The car also experienced an offset when turning the corner at the end of the street. After that, the car moves smoothly and in a controlled way.
+As you can see in the video, the car experiments some turbulence at the beginning, due to the nature of the PID controllers that I will explain later. In brief, the car experiments some turbulence when the car is behind the waypoints. As soon as the car reaches the waypoints, it gets more control over the situation. The car also experienced an offset when turning the corner at the end of the street. After that, the car moves smoothly and in a controlled way.
 
 Steering Plot<br/>
 ![Steering Plot](/plots/steering.png)
 
-
+In the Steering Plot, there are 2 curves: The Error Steering in blue and the Steering Output in orange. The Error Steering is somewhat low with few disturbances in the conflicting parts of the video: The beginning where the waypoints left behind the car and the corner where the car turned with an offset. The Steering Output is proportional to the Error Steering, due to proportional term of the PID controller. However, they are not equal because the derivative term of the PID controllers prevents the car from overshotting the proportional reaction to the error. The integral term of the PID controller is small and we cannot notice its influence in the graph. However, if the car has a small drift due to hits and damage, the integrative term will alleviate such small problems. If the car has no problems, the integral error will have a mean close to zero, that is, positive errors and negative errors will cancel out, and the integral term will have no influcence.
 
 Throttle Plot<br/>
 ![Throttle Plot](/plots/throttle.png)
