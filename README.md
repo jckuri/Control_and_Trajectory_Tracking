@@ -6,19 +6,36 @@ https://www.udacity.com/course/self-driving-car-engineer-nanodegree--nd013
 
 In this project, you apply the skills you have acquired in this course to design a PID controller to perform vehicle trajectory tracking. Given a trajectory as an array of locations, and a simulation environment (the vehicle with possible perturbations), you design and code a PID controller and test its efficiency on the CARLA simulator used in the industry.
 
-# Installation
+# Installation Prerequisites
 
-Download this github repository in your local drive: 
+First, you must install Conda.<br/>
+https://docs.conda.io/en/latest/
+
+Install Python 3.7:<br/>
+```
+conda create -n SDC python=3.6
+conda activate SDC
+```
+
+Install the Carla Simulator:<br/>
+https://carla.org/<br/>
+https://carla.readthedocs.io/en/latest/start_quickstart/<br/>
+
+
+
+# Installation Steps
+
+Download this github repository in your local drive:<br/>
 https://github.com/jckuri/Control_and_Trajectory_Tracking/archive/refs/heads/main.zip
 
-Unzip the file `Control_and_Trajectory_Tracking-main.zip`
-CD into the folder `Control_and_Trajectory_Tracking-main`
-Run the script `copy_files.sh`:
+Unzip the file `Control_and_Trajectory_Tracking-main.zip`<br/>
+CD into the folder `Control_and_Trajectory_Tracking-main`<br/>
+Run the script `copy_files.sh`:<br/>
 ```
 sh copy_files.sh
 ```
 
-The script `copy_files.sh` basically clones this project from the Udacity repository and copies all the files I modified into the corresponding folders inside the github repository in an automatic way:
+The script `copy_files.sh` basically clones this project from the Udacity repository and copies all the files I modified into the corresponding folders inside the github repository in an automatic way:<br/>
 ```
 git clone https://github.com/udacity/nd013-c6-control-starter.git
 cp code/compile_pid_controller.sh nd013-c6-control-starter/project/
@@ -29,20 +46,40 @@ cp code/pid_controller.cpp nd013-c6-control-starter/project/pid_controller/
 cp code/pid_controller.h nd013-c6-control-starter/project/pid_controller/
 ```
 
-First, you must install Conda.
-https://docs.conda.io/en/latest/
-
-Install Python 3.7:
+CD into the project folder:
 ```
-conda create -n SDC python=3.6
-conda activate SDC
+cd nd013-c6-control-starter/project
 ```
 
-Install the Carla Simulator:
-https://carla.org/
-https://carla.readthedocs.io/en/latest/start_quickstart/
+Run the script `install-ubuntu.sh`:
+```
+sh install-ubuntu.sh
+```
 
-sh install_project.sh 
+CD into the folder `pid_controller`. Remove the folder `rpclib`. Clone the github repository `rpclib`. CD into the folder `rpclib`. Make the project `rpclib`.
+```
+cd pid_controller/
+rm -rf rpclib
+git clone https://github.com/rpclib/rpclib.git
+cd rpclib
+cmake .
+make
+```
+
+Make the project `pid_controller`.
+```
+cd ..
+cmake .
+make
+```
+
+Run the Carla Simulator in another terminal:
+```
+cd /opt/carla-simulator/
+sh CarlaUE4.sh
+```
+
+
 
 
 **Screenshot after successfully installing and running the default code without behavior:**<br/>
