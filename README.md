@@ -8,7 +8,13 @@ In this project, you apply the skills you have acquired in this course to design
 
 # Installation Prerequisites
 
-First, you must install Conda.<br/>
+Install make:
+https://www.gnu.org/software/make/
+
+Install GCC:
+https://www.gnu.org/software/gcc/
+
+Install Conda.<br/>
 https://docs.conda.io/en/latest/
 
 Install Python 3.7:<br/>
@@ -46,9 +52,9 @@ sudo apt-get install libboost-all-dev
 If you `apt-get update` fails at some non-working repositories, you can follow these steps:<br/>
 https://askubuntu.com/questions/91543/apt-get-update-fails-to-fetch-files-temporary-failure-resolving-error<br/>
 Add a # to the beginning of the line to comment it out - for example<br/>
-#deb http:/archive.canonical.com/ natty backports<br/>
+`#deb http:/archive.canonical.com/ natty backports`<br/>
 Save and re-run:<br/>
-sudo apt-get update && sudo apt-get upgrade<br/>
+`sudo apt-get update && sudo apt-get upgrade`<br/>
 http://archive.ubuntu.com/ubuntu/<br/>
 
 If the library `glog` is not installed, please install the library `glog`.<br/>
@@ -58,14 +64,14 @@ sudo apt-get update -y
 sudo apt-get install -y libgoogle-glog-dev
 ```
 
-If the library `libgtest` is not installed, please install the library `libgtest`.<br/>
+If the library `libgtest` is not installed and errors appear, please install the library `libgtest`.<br/>
 No rule to make target '/usr/src/gtest/libgtest.a'<br/>
 https://www.eriksmistad.no/getting-started-with-google-test-on-ubuntu/<br/>
 ```
 sudo apt-get install libgtest-dev
 ```
 
-If the libraries `blas` and `lapack` are not installed, please install the libraries `blas` and `lapack`.<br/>
+If the libraries `blas` and `lapack` are not installed and errors appear, please install the libraries `blas` and `lapack`.<br/>
 /usr/bin/ld: cannot find -llapack<br/>
 https://askubuntu.com/questions/623578/installing-blas-and-lapack-packages<br/>
 sudo apt-get install libblas-dev liblapack-dev<br/>
