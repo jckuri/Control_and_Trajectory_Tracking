@@ -366,6 +366,7 @@ These bugs are a big source of headaches. I hope you paid attention to them and 
 
 The car location is unknown. So, I had to send it in `simulatorAPI.py` and I had to receive it in `main.cpp`:
 
+`simulatorAPI.py`
 ```
                 t = world.player.get_transform()
                 location_x = t.location.x
@@ -375,6 +376,7 @@ The car location is unknown. So, I had to send it in `simulatorAPI.py` and I had
                 ws.send(json.dumps({'traj_x': x_points, 'traj_y': y_points, 'traj_v': v_points ,'yaw': _prev_yaw, "velocity": velocity, 'time': sim_time, 'waypoint_x': waypoint_x, 'waypoint_y': waypoint_y, 'waypoint_t': waypoint_t, 'waypoint_j': waypoint_j, 'tl_state': _tl_state, 'obst_x': obst_x, 'obst_y': obst_y, 'location_x': location_x, 'location_y': location_y, 'location_z': location_z } ))
 ```
 
+`main.cpp`
 ```
           double x_position = data["location_x"];
           double y_position = data["location_y"];
@@ -393,6 +395,7 @@ Spirals and waypoints disappear and reappear in a discontinuous way, pointing to
 
 A division by zero occurs when waypoints gather to the same location. I already correct this bug in the `simulatorAPI.py` with this Python code:
 
+`simulatorAPI.py`
 ```
                 else:
                     _prev_yaw = yaw
@@ -420,6 +423,7 @@ A division by zero occurs when waypoints gather to the same location. I already 
 
 A list index error when drawing spirals. So, I had to comment out the code for drawing spirals:
 
+`simulatorAPI.py`
 ```
         # draw spirals
         height_plot_scale = 1.0
@@ -454,6 +458,7 @@ A list index error when drawing spirals. So, I had to comment out the code for d
 
 At the end of the game loop, I added 3 lines to report the exceptions thrown in the game loop:
 
+`simulatorAPI.py`
 ```
     except Exception as error:
         print('EXCEPTION IN GAME LOOP:')
