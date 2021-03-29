@@ -338,7 +338,7 @@ And this is how I compute the steering compensation and the speed compensation:
   }
 ```
 
-Notice that if the car is ahead of the first (last) waypoint or the average speed is zero or there are no spirals, the car should stopped.
+Notice that if the car is ahead of the first (last) waypoint or the average speed is zero or there are no spirals, the car should stop.
 
 ```
     if(abs(avg_speed) < ALMOST_ZERO || n_spirals == 0) {
