@@ -172,6 +172,8 @@ Steering Plot<br/>
 
 In the Steering Plot, there are 2 curves: The Error Steering in blue and the Steering Output in orange. The Error Steering is somewhat low with few disturbances in the conflicting parts of the video: The beginning where the waypoints left behind the car and the corner where the car turned with an offset. The Steering Output is proportional to the Error Steering, due to proportional term of the PID controller. However, they are not equal because the derivative term of the PID controllers prevents the car from overshotting the proportional reaction to the error. The integral term of the PID controller is small and we cannot notice its influence in the graph. However, if the car has a small drift due to hits and damage, the integrative term will alleviate such small problems. If the car has no problems, the integral error will have a mean close to zero, that is, positive errors and negative errors will cancel out, and the integral term will have no influcence.
 
+The big bump near the iteration 100 occurs when the car turns right and there is a offset. The car compensates the offset in a proportionate way but it overshoots a little bit. And it keeps compensating and overshooting a little bit until it recovers the control fully.
+
 Throttle Plot<br/>
 ![Throttle Plot](/plots/throttle.png)
 
