@@ -21,7 +21,60 @@ Install the Carla Simulator:<br/>
 https://carla.org/<br/>
 https://carla.readthedocs.io/en/latest/start_quickstart/<br/>
 
+If this error appear when running the Carla Simulator, don't forget to correctly configure the variable `PYTHONPATH`.<br/>
+ModuleNotFoundError: No module named 'carla'<br/>
+https://github.com/carla-simulator/scenario_runner/issues/367#issuecomment-645187463<br/>
+In my case, the variable `PYTHONPATH` is:<br/>
+```
+export PYTHONPATH="/opt/carla-simulator/PythonAPI/carla/dist/carla-0.9.11-py3.7-linux-x86_64.egg"
+```
+But in your case, it could be a different folder.<br/>
 
+If this error appears, please install the library `websocket`.<br/>
+ModuleNotFoundError: No module named 'websocket'<br/>
+https://stackoverflow.com/questions/47665760/no-module-named-websocket/47666357<br/>
+```
+pip install websocket
+```
+
+If the library `boost` is not installed and errors appear, please install the library `boost`.<br/>
+https://stackoverflow.com/questions/12578499/how-to-install-boost-on-ubuntu<br/>
+```
+sudo apt-get install libboost-all-dev
+```
+
+If you `apt-get update` fails at some non-working repositories, you can follow these steps:<br/>
+https://askubuntu.com/questions/91543/apt-get-update-fails-to-fetch-files-temporary-failure-resolving-error<br/>
+Add a # to the beginning of the line to comment it out - for example<br/>
+#deb http:/archive.canonical.com/ natty backports<br/>
+Save and re-run:<br/>
+sudo apt-get update && sudo apt-get upgrade<br/>
+http://archive.ubuntu.com/ubuntu/<br/>
+
+If the library `glog` is not installed, please install the library `glog`.<br/>
+https://zoomadmin.com/HowToInstall/UbuntuPackage/libgoogle-glog-dev<br/>
+```
+sudo apt-get update -y
+sudo apt-get install -y libgoogle-glog-dev
+```
+
+If the library `libgtest` is not installed, please install the library `libgtest`.<br/>
+No rule to make target '/usr/src/gtest/libgtest.a'<br/>
+https://www.eriksmistad.no/getting-started-with-google-test-on-ubuntu/<br/>
+```
+sudo apt-get install libgtest-dev
+```
+
+If the libraries `blas` and `lapack` are not installed, please install the libraries `blas` and `lapack`.<br/>
+/usr/bin/ld: cannot find -llapack<br/>
+https://askubuntu.com/questions/623578/installing-blas-and-lapack-packages<br/>
+sudo apt-get install libblas-dev liblapack-dev<br/>
+
+Kazam Screen Recorder is useful to record the animation in a video file.<br/>
+https://itsfoss.com/kazam-screen-recorder/<br/>
+
+Video Trimmer is useful to trim the video recording.<br/>
+https://flathub.org/apps/details/org.gnome.gitlab.YaLTeR.VideoTrimmer<br/>
 
 # Installation Steps
 
@@ -46,17 +99,17 @@ cp code/pid_controller.cpp nd013-c6-control-starter/project/pid_controller/
 cp code/pid_controller.h nd013-c6-control-starter/project/pid_controller/
 ```
 
-CD into the project folder:
+CD into the project folder:<br/>
 ```
 cd nd013-c6-control-starter/project
 ```
 
-Run the script `install-ubuntu.sh`:
+Run the script `install-ubuntu.sh`:<br/>
 ```
 sh install-ubuntu.sh
 ```
 
-CD into the folder `pid_controller`. Remove the folder `rpclib`. Clone the github repository `rpclib`. CD into the folder `rpclib`. Make the project `rpclib`.
+CD into the folder `pid_controller`. Remove the folder `rpclib`. Clone the github repository `rpclib`. CD into the folder `rpclib`. Make the project `rpclib`.<br/>
 ```
 cd pid_controller/
 rm -rf rpclib
@@ -66,30 +119,32 @@ cmake .
 make
 ```
 
-Make the project `pid_controller`.
+Make the project `pid_controller`.<br/>
 ```
 cd ..
 cmake .
 make
 ```
 
-Run the Carla Simulator in another terminal:
+Run the Carla Simulator in another terminal:<br/>
 ```
 cd /opt/carla-simulator/
 sh CarlaUE4.sh
 ```
 
-In the previous terminal where we made the projects, go to the folder `nd013-c6-control-starter/project`. Compile and run the project.
+In the previous terminal where we made the projects, go to the folder `nd013-c6-control-starter/project`. Compile and run the project.<br/>
 ```
 cd ..
 sh compile_pid_controller.sh
 sh run_main_pid.sh
 ```
 
-Then the following window must appear indicating that you have successfully installed and run the project:
+Then the following window must appear indicating that you have successfully installed and run the project:<br/>
 
 **Screenshot after successfully installing and running the default code without behavior**<br/>
 ![Screenshot after successfully installing and running the default code](/images/screenshot_01.png)
+
+If this window does not appear and errors appear instead, it means that some **Installation Steps** or some **Installation Prerequisites** were skipped. Please, read the instructions carefully. Perhaps the instructions in the **Installation Prerequisites** are not comprehensive and there are some missing libraries. If so, google about "how to install <the missing libraries>" in the error messages.<br/>
 
 # answers.txt
 
