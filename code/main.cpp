@@ -295,6 +295,7 @@ class WayPoints {
     avg_speed = 0;
     all_waypoints_stopped = 1;
     any_waypoint_stopped = 0;
+    // computes the average point and the average speed
     for(int i = 0; i < n_points; i++) {
       points.push_back(new Vector2D(x_points[i], y_points[i]));
       x_avg += x_points[i];
@@ -354,16 +355,18 @@ class WayPoints {
     };
   }
   
-  // The explanation of this calculation is in the README.md file of the github repository, section "Mathematical explanation of my vectorial fields".
+  // The explanation of this calculation is in the README.md file of the github repository, section "Mathematical explanation of the vectorial fields".
   Recommendation compute_recommendation(Vector2D *location, double current_angle, double current_speed, int n_spirals) {
     this->location = location;
+    // if the average speed is zero or there are no spirals, the car should stop.
     if(abs(avg_speed) < ALMOST_ZERO || n_spirals == 0) {
-    //if(any_waypoint_stopped) {
       return recommended_to_stop(current_angle, current_speed);
     } else {
+      // computes the ortonormal base
       Vector2D *direction = last_point->subtract(central_point);
       i = direction->unitary();
       j = new Vector2D(-i->y, i->x);
+      // computes the projection of the car location onto the ortonormal base
       Vector2D *d = location->subtract(central_point);
       projection = new Vector2D(d->dot_product(i), d->dot_product(j));
       double steering = correct_angle(direction->angle());
@@ -373,6 +376,7 @@ class WayPoints {
       printf("Recommendation: steering=%f+%f, speed=%f+%f\n", steering, steering_compensation, speed, speed_compensation);
       printf("Current: steering=%f, speed=%f\n", current_angle, current_speed);
       printf("direction=(%f,%f), projection=(%f,%f)\n\n", direction->x, direction->y, projection->x, projection->y);
+      // if the car is ahead of the first (last) waypoint, the car should stop.
       if(projection->x > direction->magnitude()) 
         return recommended_to_stop(current_angle, current_speed);
       return Recommendation {
@@ -553,7 +557,7 @@ int main ()
           Recommendation recommendation = way_points.compute_recommendation(location, current_steering, velocity, n_spirals);
           double desired_steering = recommendation.steering;
           double desired_speed = recommendation.speed;
-          // The explanation of this calculation is in the README.md file of the github repository, section "Mathematical explanation of my vectorial fields".
+          // The explanation of this calculation is in the README.md file of the github repository, section "Mathematical explanation of the vectorial fields".
           error_steer = correct_angle(desired_steering - current_steering); 
           
           /**
@@ -590,7 +594,7 @@ int main ()
           **/
           // modify the following line for step 2
           error_throttle = 0;
-          // The explanation of this calculation is in the README.md file of the github repository, section "Mathematical explanation of my vectorial fields".
+          // The explanation of this calculation is in the README.md file of the github repository, section "Mathematical explanation of the vectorial fields".
           error_throttle = desired_speed - velocity;
           
           
