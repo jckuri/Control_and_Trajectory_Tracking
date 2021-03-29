@@ -360,11 +360,34 @@ https://youtu.be/Tofv9COgiks
 
 # Known Bugs
 
-The car location is unknown. So, I had to send it.
+### The car location is unknown
+
+The car location is unknown. So, I had to send it in `simulatorAPI.py` and I had to receive it in `main.cpp`:
+
+```
+                t = world.player.get_transform()
+                location_x = t.location.x
+                location_y = t.location.y
+                location_z = t.location.z
+    
+                ws.send(json.dumps({'traj_x': x_points, 'traj_y': y_points, 'traj_v': v_points ,'yaw': _prev_yaw, "velocity": velocity, 'time': sim_time, 'waypoint_x': waypoint_x, 'waypoint_y': waypoint_y, 'waypoint_t': waypoint_t, 'waypoint_j': waypoint_j, 'tl_state': _tl_state, 'obst_x': obst_x, 'obst_y': obst_y, 'location_x': location_x, 'location_y': location_y, 'location_z': location_z } ))
+```
+
+```
+          double x_position = data["location_x"];
+          double y_position = data["location_y"];
+          double z_position = data["location_z"];
+```
+
+### Spirals and waypoints disappear and reappear in a discontinuous way
 
 Spirals and waypoints disappear and reappear in a discontinuous way, causing disorientation in the self-driving car.
 
+### Division by zero when waypoints gather to the same location
+
 Division by zero when waypoints gather to the same location.
+
+### List index error when drawing spirals
 
 List index error when drawing spirals.
 
