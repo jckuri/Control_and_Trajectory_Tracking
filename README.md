@@ -189,6 +189,13 @@ One thing to notice is that both the Throttle Output and the Brake Output are po
 
 ## What is the effect of the PID according to the plots, how each part of the PID affects the control command?
 
+I repeat:
+
+The Steering Output is proportional to the Error Steering, due to proportional term of the PID controller. However, they are not equal because the derivative term of the PID controller prevents the car from overshotting the proportional reaction to the error. The integral term of the PID controller is small and we cannot notice its influence in the graph. However, if the car has a small drift due to hits and damage, the integrative term will alleviate such small problems. If the car has no problems, the integral error will have a mean close to zero, that is, positive errors and negative errors will cancel out, and the integral term will have no influcence.
+
+The Throttle Output is proportional to the Error Throttle, due to proportional term of the PID controller. However, they are not equal because the derivative term of the PID controller prevents the car from overshotting the proportional reaction to the error. The integral term of the PID controller is small and we cannot notice its influence in the graph. However, if the car has a small drift due to hits and damage, the integrative term will alleviate such small problems.
+
+One thing to notice is that both the Throttle Output and the Brake Output are positive. And the Error Throttle can be positive or negative. When the Error Throttle is positive, the Throttle Output shows a proportionate and positive reaction; and the Brake Output is zero. And when the Error Throttle is negative, the Brake Output shows a proportionate, smaller, and positive reaction; and the Throttle Output is zero. The Brake Output shows a smaller reaction because the brake is stronger than the accelerator.
 
 ## How would you design a way to automatically tune the PID parameters? This is an open question, the coherence and justification of the answer is valued. 
 
