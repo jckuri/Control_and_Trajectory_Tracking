@@ -199,7 +199,7 @@ One thing to notice is that both the Throttle Output and the Brake Output are po
 
 ## How would you design a way to automatically tune the PID parameters? This is an open question, the coherence and justification of the answer is valued. 
 
-As you can see, I tuned the PID parameters by trials and errors, the oldest optimization method. I also used my own experience with PID controllers (Artificial Intelligence for Robotics at Georgia Tech) to guess coherent parameters and save some time. I performed countless experiments trying to understand not only the PID parameters but also the other parameters of my vectorial fields.
+As you can see, I tuned the PID parameters by trials and errors, the oldest optimization method. I also used my own experience with PID controllers since I took the course "Artificial Intelligence for Robotics" in my masters in Georgia Tech, the OMS CS. So, I guessed coherent parameters and saved some time. I performed countless experiments trying to understand not only the PID parameters but also the other parameters of my vectorial fields.
 
 ```
   // initialize pid steer
