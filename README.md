@@ -181,7 +181,7 @@ The big bump near the iteration 100 occurs when the car turns right and there is
 
 In the Throttle Plot, there are 3 curves: The Error Throttle in blue, the Throttle Output in green, and the Brake Output in orange. The Error Throttle is the difference between the current speed and the desired speed suggested by the vectorial field I describe below. Basically, the vectorial field suggests the speed should be the average speed of the average waypoint. The vectorial field also creates an ortonormal base from the flow direction and suggest a speed compensation if the projected position of the car is in the ahead or behind cuadrants of such ortonormal base.
 
-The Error Throttle is somewhat low with few disturbances throughout the trajectory. I admit the PID controller for throttle and brake is not so controlled. Why? Due to the vectorial field I created. It's an average and thus inexact in nature. However, the solution is quite robust overall. 
+The Error Throttle is somewhat low with small disturbances (up to 0.5) throughout the trajectory. I admit the PID controller for throttle and brake is not so controlled. Why? Due to the vectorial field I created. It's an average and thus inexact in nature. However, the solution is quite robust, overall. 
 
 The Throttle Output is proportional to the Error Throttle, due to proportional term of the PID controller. However, they are not equal because the derivative term of the PID controller prevents the car from overshotting the proportional reaction to the error. The integral term of the PID controller is small and we cannot notice its influence in the graph. However, if the car has a small drift due to hits and damage, the integrative term will alleviate such small problems.
 
