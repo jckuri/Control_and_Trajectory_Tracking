@@ -282,6 +282,10 @@ Cons:
 
 ## (Optional) What would you do to improve the PID controller? This is an open question, the coherence and justification of the answer is valued. 
 
+We need to speed up the simulation. Perhaps, by turning off the graphical part of the simulation, it could be speed up while preserving its realism and accuracy. In a simulation, time can be stretched and compressed without modifying the outcome. In that way, we could perform tons of experiments while varying the parameters. We should select the parameters whose RMSE is smaller. We can start from multiple hyperpoints and see where they ultimately land, in local optima. From all local optima, we can select the best optimum. That's called evolution by natural selection.
+
+My approach of the vectorial fields with the average waypoint is better than my other approach of the vectorial fields with the closest waypoint. However, I have a new approach to test, if I had time, which is based on other vectorial fields with the smooth trajectories formed by the closest waypoints. I also didn't test having a memory of the waypoints. So that, if the car is way behind the waypoints, the car can recover without losing the track.
+
 # Mathematical explanation of my vectorial fields
 
 Vectorial fields for steering and throttle:<br/>
