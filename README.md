@@ -8,6 +8,9 @@ In this project, you apply the skills you have acquired in this course to design
 
 # Installation Prerequisites
 
+Install Ubuntu:<br/>
+https://ubuntu.com/
+
 Install make:<br/>
 https://www.gnu.org/software/make/
 
