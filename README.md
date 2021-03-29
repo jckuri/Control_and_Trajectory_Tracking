@@ -360,7 +360,9 @@ https://youtu.be/Tofv9COgiks
 
 # Known Bugs
 
-### The car location is unknown
+These bugs are a big source of headaches. I hope you paid attention to them and correct them. So, students won't experience the frustration and blockages I had.
+
+## The car location is unknown
 
 The car location is unknown. So, I had to send it in `simulatorAPI.py` and I had to receive it in `main.cpp`:
 
@@ -379,15 +381,15 @@ The car location is unknown. So, I had to send it in `simulatorAPI.py` and I had
           double z_position = data["location_z"];
 ```
 
-### Spirals and waypoints disappear and reappear in a discontinuous way
+## Spirals and waypoints disappear and reappear in a discontinuous way
 
-Spirals and waypoints disappear and reappear in a discontinuous way, causing disorientation in the self-driving car.
+Spirals and waypoints disappear and reappear in a discontinuous way, causing disorientation in the self-driving car. This error is quite common and sporadic. I thought it was caused when the car gets apart from the waypoints. But I experienced the same bug when the car was quite aligned with the waypoints. So, I think this bug is yours, not mine. And you should correct this bug, which is super frustrating for students. If this bug didn't exist, my car could drive in an indefinite way, since my vectorial field solution is quite robust and can recover from almost any issue, except from big discontinuities in the waypoints.
 
-### Division by zero when waypoints gather to the same location
+## Division by zero when waypoints gather to the same location
 
 Division by zero when waypoints gather to the same location.
 
-### List index error when drawing spirals
+## List index error when drawing spirals
 
 List index error when drawing spirals.
 
