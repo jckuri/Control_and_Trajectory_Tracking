@@ -414,6 +414,23 @@ int main ()
   **/
   PID pid_steer = PID();
   double max_steer = 1.2; //0.25 * M_PI; // ORIGINAL
+  //pid_steer.Init(0.2, 0.05, 0.05, max_steer, -max_steer, 50);
+  //pid_steer.Init(0.15, 0.005, 0.05, max_steer, -max_steer, 10); // VERY GOOD!
+  //pid_steer.Init(0.25, 0.1, 0.5, max_steer, -max_steer, 10); // GREAT!!!
+  //pid_steer.Init(0.25, 0.1, 0.5, max_steer, -max_steer, 10); // GREAT!!! (11 MINUTES)
+  //pid_steer.Init(0.25, 0.1, 0.5, max_steer, -max_steer, 10);
+  //pid_steer.Init(0.25, 0.01, 0.25, max_steer, -max_steer, 10);
+  //pid_steer.Init(0.3, 0.05, 0.3, max_steer, -max_steer, 10); // good turn?
+  //pid_steer.Init(0.3, 0.1, 0.2, max_steer, -max_steer, 10); // good turn!
+  //pid_steer.Init(0.3, 0.1, 0.2, max_steer, -max_steer, 10);
+  //pid_steer.Init(0.25, 0.01, 0.25, max_steer, -max_steer, 10); // good control
+  //pid_steer.Init(0.25, 0.01, 0.25, max_steer, -max_steer, 10); // great turn and timing
+  //pid_steer.Init(0.25, 0.01, 0.25, max_steer, -max_steer, 10); 
+  //pid_steer.Init(0.25, 0.1, 0.4, max_steer, -max_steer, 10); // latest before future point
+  //pid_steer.Init(0.2, 0.01, 0.2, max_steer, -max_steer, 10); // very good but it crashes wall
+  //pid_steer.Init(0.25, 0.1, 0.5, max_steer, -max_steer, 10); // 22 minutes!!!
+  //pid_steer.Init(0.25, 0.05, 0.4, max_steer, -max_steer, 10); // perfect turn
+  //pid_steer.Init(0.25, 0.02, 0.4, max_steer, -max_steer, 10); // good enough for speed control and turns
   //pid_steer.Init(0.25, 0.02, 0.4, max_steer, -max_steer); // ORIGINAL
   //pid_steer.Init(0.3, 0.01, 0.4, max_steer, -max_steer);
   //pid_steer.Init(0.3, 0.01, 0.4, max_steer, -max_steer);
@@ -427,6 +444,21 @@ int main ()
   PID pid_throttle = PID();
   double max_throttle = 1; //0.75; //1; // ORIGINAL
   double max_break = -1; //-0.25; //-0.25; //-0.15; // ORIGINAL
+  //pid_throttle.Init(1, 0.05, 0.0, max_throttle, max_break, 50);
+  //pid_throttle.Init(1, 0.075, 0.01, max_throttle, max_break, 50);
+  //pid_throttle.Init(0.25, 0.05, 0.1, max_throttle, max_break, 10); // GREAT!!!
+  //pid_throttle.Init(0.25, 0.05, 0.1, max_throttle, max_break, 10);
+  //pid_throttle.Init(0.25, 0.05, 0.1, max_throttle, max_break, 10); // GREAT!!! (11 MINUTES)
+  //pid_throttle.Init(0.20, 0.05, 0.1, max_throttle, max_break, 10);
+  //pid_throttle.Init(0.2, 0.05, 0.2, max_throttle, max_break, 10); // good turn but too much
+  //pid_throttle.Init(0.1, 0.05, 0.1, max_throttle, max_break, 10); // too low
+  //pid_throttle.Init(0.2, 0.1, 0.1, max_throttle, max_break, 10); // good turn but too much
+  //pid_throttle.Init(0.2, 0.05, 0.1, max_throttle, max_break, 10); // good timing
+  //pid_throttle.Init(0.2, 0.05, 0.1, max_throttle, max_break, 10); // great turn and timing
+  //pid_throttle.Init(0.2, 0.05, 0.1, max_throttle, max_break, 10);
+  //pid_throttle.Init(0.25, 0.05, 0.1, max_throttle, max_break, 10); // 22 minutes!!!
+  //pid_throttle.Init(0.25, 0.05, 0.1, max_throttle, max_break, 10); // perfect turn
+  //pid_throttle.Init(0.25, 0.02, 0.1, max_throttle, max_break, 10); // good enough for speed control and turns
   //pid_throttle.Init(0.25, 0.02, 0.1, max_throttle, max_break); // ORIGINAL
   //pid_throttle.Init(0.25, 0.02, 0.2, max_throttle, max_break);
   //pid_throttle.Init(0.3, 0.02, 0.2, max_throttle, max_break);
@@ -520,7 +552,8 @@ int main ()
           Recommendation recommendation = way_points.compute_recommendation(location, current_steering, velocity, n_spirals);
           double desired_steering = recommendation.steering;
           double desired_speed = recommendation.speed;
-          error_steer = correct_angle(desired_steering - current_steering);
+          // The explanation of this calculation is in the README.md file of the github repository, section "Mathematical explanation of my vectorial fields".
+          error_steer = correct_angle(desired_steering - current_steering); 
           
           /**
           * TODO (step 3): uncomment these lines 
@@ -556,6 +589,7 @@ int main ()
           **/
           // modify the following line for step 2
           error_throttle = 0;
+          // The explanation of this calculation is in the README.md file of the github repository, section "Mathematical explanation of my vectorial fields".
           error_throttle = desired_speed - velocity;
           
           
