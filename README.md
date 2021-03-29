@@ -79,10 +79,16 @@ cd /opt/carla-simulator/
 sh CarlaUE4.sh
 ```
 
+In the previous terminal where we made the projects, go to the folder `nd013-c6-control-starter/project`. Compile and run the project.
+```
+cd ..
+sh compile_pid_controller.sh
+sh run_main_pid.sh
+```
 
+Then the following window must appear indicating that you have successfully installed and run the project:
 
-
-**Screenshot after successfully installing and running the default code without behavior:**<br/>
+**Screenshot after successfully installing and running the default code without behavior**<br/>
 ![Screenshot after successfully installing and running the default code](/images/screenshot_01.png)
 
 # answers.txt
