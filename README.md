@@ -383,14 +383,84 @@ The car location is unknown. So, I had to send it in `simulatorAPI.py` and I had
 
 ## Spirals and waypoints disappear and reappear in a discontinuous way
 
-Spirals and waypoints disappear and reappear in a discontinuous way, causing disorientation in the self-driving car. This error is quite common and sporadic. I thought it was caused when the car gets apart from the waypoints. But I experienced the same bug when the car was quite aligned with the waypoints. So, I think this bug is yours, not mine. And you should correct this bug, which is super frustrating for students. If this bug didn't exist, my car could drive in an indefinite way, since my vectorial field solution is quite robust and can recover from almost any issue, except from big discontinuities in the waypoints.
+Spirals and waypoints disappear and reappear in a discontinuous way, pointing toward a totally different direction, causing disorientation in the self-driving car. This error is quite common and sporadic. I thought it was caused when the car gets apart from the waypoints. But I experienced the same bug when the car was quite aligned with the waypoints. So, I think this bug is yours, not mine. And you should correct this bug, which is super frustrating for students. If this bug didn't exist, my car could drive in an indefinite way, since my vectorial field solution is quite robust and can recover from almost any issue, except from big discontinuities in the waypoints. I think this error occurs in junctions. So, pay attention to the code for junctions and also to the code for generating spirals.
 
 ## Division by zero when waypoints gather to the same location
 
-Division by zero when waypoints gather to the same location.
+A division by zero occurs when waypoints gather to the same location. I already correct this bug in the `simulatorAPI.py` with this Python code:
+
+```
+                else:
+                    _prev_yaw = yaw
+                    D = velocity * delta_t
+                    d_interval = math.sqrt( (way_points[1].location.x - way_points[0].location.x )**2 + (way_points[1].location.y - way_points[0].location.y )**2  )
+                    while d_interval < D and len(way_points) > 2:
+                        D -= d_interval
+                        way_points.pop(0)
+                        v_points.pop(0)
+                        d_interval = math.sqrt( (way_points[1].location.x - way_points[0].location.x )**2 + (way_points[1].location.y - way_points[0].location.y )**2  )
+                    if abs(d_interval) < 1e-6:
+                        #v_points[0] = v_points[0]
+                        #way_points[0].location.x = way_points[0].location.x
+                        #way_points[0].location.y = way_points[0].location.y
+                        yaw = 0.
+                    else:
+                        ratio = D / d_interval # SUSPICIOUS
+                        v_points[0] = ratio * (v_points[1]-v_points[0]) + v_points[0]
+                        way_points[0].location.x = ratio * (way_points[1].location.x - way_points[0].location.x) + way_points[0].location.x
+                        way_points[0].location.y = ratio * (way_points[1].location.y - way_points[0].location.y) + way_points[0].location.y
+                        yaw = math.atan2(way_points[1].location.y-way_points[0].location.y, way_points[1].location.x-way_points[0].location.x)
+```
 
 ## List index error when drawing spirals
 
-List index error when drawing spirals.
+A list index error when drawing spirals. So, I had to comment out the code for drawing spirals:
 
+```
+        # draw spirals
+        height_plot_scale = 1.0
+        height_plot_offset = 1.0
+        """
+        blue = carla.Color(r=0, g=0, b=255)
+        green = carla.Color(r=0, g=255, b=0)
+        red = carla.Color(r=255, g=0, b=0)
+        for i in range(len(spirals_x)):
+            previous_index = 0
+            previous_speed = 0
+            start = carla.Transform()
+            end = carla.Transform()
+            color = blue
+            if i == spiral_idx[-1]:
+                color = green
+            elif i in spiral_idx[:-1]:
+                color = red
+            for index in range(1, len(spirals_x[i])):
+                start.location.x = spirals_x[i][previous_index]
+                start.location.y = spirals_y[i][previous_index]
+                end.location.x = spirals_x[i][index]
+                end.location.y = spirals_y[i][index]
+                start.location.z = height_plot_scale * spirals_v[i][previous_index] + height_plot_offset + _road_height
+                end.location.z =  height_plot_scale * spirals_v[i][index] + height_plot_offset + _road_height
+                self.world.debug.draw_line(start.location, end.location, 0.1, color, .1)
+                previous_index = index  
+        """
+```
 
+## The game loop does not report exceptions thrown
+
+At the end of the game loop, I added 3 lines to report the exceptions thrown in the game loop:
+
+```
+    except Exception as error:
+        print('EXCEPTION IN GAME LOOP:')
+        print(error)
+    finally:
+
+        print("key board interrupt, good bye")
+        if world is not None:
+            world.destroy()
+
+        client.apply_batch([carla.command.DestroyActor(x) for x in vehicles_list])
+
+        pygame.quit()        
+```
