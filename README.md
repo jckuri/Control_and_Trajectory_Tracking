@@ -297,6 +297,61 @@ The Error Throttle is the difference between the current speed and the desired s
 **Vectorial fields for steering and throttle:**<br/>
 ![Vectorial fields for steering and throttle](/images/vectorial_fields.png)
 
+In this way, I compute the ortonormal base and the projection of the car location onto the ortonormal base:
+
+```
+      // computes the ortonormal base
+      Vector2D *direction = last_point->subtract(central_point);
+      i = direction->unitary();
+      j = new Vector2D(-i->y, i->x);
+      // computes the projection of the car location onto the ortonormal base
+      Vector2D *d = location->subtract(central_point);
+      projection = new Vector2D(d->dot_product(i), d->dot_product(j));
+```
+
+And this is how I compute the steering compensation and the speed compensation:
+
+```
+      double steering = correct_angle(direction->angle());
+      double steering_compensation = correct_angle(compute_steering_compensation());
+      double speed = min(avg_speed, 3);
+      double speed_compensation = compute_speed_compensation();
+
+...
+
+  double compute_steering_compensation() {
+    double max_angle = M_PI * 0.25;
+    double angle_compensation = -projection->y * 0.5; //0.25; //0.75; // * 0.5;
+    if(angle_compensation > max_angle) angle_compensation = max_angle;
+    if(angle_compensation < -max_angle) angle_compensation = -max_angle;
+    return angle_compensation;
+  }
+  
+  double compute_speed_compensation() {
+    double max_speed = 1.5; //1;
+    double offset = 0; //0.5; //-0.5; //-1;
+    double speed_compensation = -(projection->x - offset) * 0.15; //0.2; //0.1;
+    if(speed_compensation > max_speed) speed_compensation = max_speed;
+    if(speed_compensation < -max_speed) speed_compensation = -max_speed;
+    //if(speed_compensation < 0) speed_compensation *= 2;
+    return speed_compensation;
+  }
+```
+
+Notice that if the car is ahead of the first (last) waypoint or the average speed is zero or there are no spirals, the car should stopped.
+
+```
+    if(abs(avg_speed) < ALMOST_ZERO || n_spirals == 0) {
+    //if(any_waypoint_stopped) {
+      return recommended_to_stop(current_angle, current_speed);
+    } else {
+    
+    ...
+    
+      if(projection->x > direction->magnitude()) 
+        return recommended_to_stop(current_angle, current_speed);
+```
+
 # Longer Demo (11 minutes)
 
 [SDCE ND] Control and Trajectory Tracking for Autonomous Vehicles (Demo 2)<br/>
