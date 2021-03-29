@@ -33,6 +33,68 @@ Throttle Plot<br/>
 
 ## How would you design a way to automatically tune the PID parameters? This is an open question, the coherence and justification of the answer is valued. 
 
+```
+  // initialize pid steer
+  /**
+  * TODO (Step 1): create pid (pid_steer) for steer command and initialize values
+  **/
+  PID pid_steer = PID();
+  double max_steer = 1.2; //0.25 * M_PI; // ORIGINAL
+  //pid_steer.Init(0.2, 0.05, 0.05, max_steer, -max_steer, 50);
+  //pid_steer.Init(0.15, 0.005, 0.05, max_steer, -max_steer, 10); // VERY GOOD!
+  //pid_steer.Init(0.25, 0.1, 0.5, max_steer, -max_steer, 10); // GREAT!!!
+  //pid_steer.Init(0.25, 0.1, 0.5, max_steer, -max_steer, 10); // GREAT!!! (11 MINUTES)
+  //pid_steer.Init(0.25, 0.1, 0.5, max_steer, -max_steer, 10);
+  //pid_steer.Init(0.25, 0.01, 0.25, max_steer, -max_steer, 10);
+  //pid_steer.Init(0.3, 0.05, 0.3, max_steer, -max_steer, 10); // good turn?
+  //pid_steer.Init(0.3, 0.1, 0.2, max_steer, -max_steer, 10); // good turn!
+  //pid_steer.Init(0.3, 0.1, 0.2, max_steer, -max_steer, 10);
+  //pid_steer.Init(0.25, 0.01, 0.25, max_steer, -max_steer, 10); // good control
+  //pid_steer.Init(0.25, 0.01, 0.25, max_steer, -max_steer, 10); // great turn and timing
+  //pid_steer.Init(0.25, 0.01, 0.25, max_steer, -max_steer, 10); 
+  //pid_steer.Init(0.25, 0.1, 0.4, max_steer, -max_steer, 10); // latest before future point
+  //pid_steer.Init(0.2, 0.01, 0.2, max_steer, -max_steer, 10); // very good but it crashes wall
+  //pid_steer.Init(0.25, 0.1, 0.5, max_steer, -max_steer, 10); // 22 minutes!!!
+  //pid_steer.Init(0.25, 0.05, 0.4, max_steer, -max_steer, 10); // perfect turn
+  //pid_steer.Init(0.25, 0.02, 0.4, max_steer, -max_steer, 10); // good enough for speed control and turns
+  //pid_steer.Init(0.25, 0.02, 0.4, max_steer, -max_steer); // ORIGINAL
+  //pid_steer.Init(0.3, 0.01, 0.4, max_steer, -max_steer);
+  //pid_steer.Init(0.3, 0.01, 0.4, max_steer, -max_steer);
+  //pid_steer.Init(0.3, 0.01, 0.4, max_steer, -max_steer);
+  pid_steer.Init(0.3, 0.01, 0.4, max_steer, -max_steer); //25 minutes!
+    
+  // initialize pid throttle
+  /**
+  * TODO (Step 1): create pid (pid_throttle) for throttle command and initialize values
+  **/
+  PID pid_throttle = PID();
+  double max_throttle = 1; //0.75; //1; // ORIGINAL
+  double max_break = -1; //-0.25; //-0.25; //-0.15; // ORIGINAL
+  //pid_throttle.Init(1, 0.05, 0.0, max_throttle, max_break, 50);
+  //pid_throttle.Init(1, 0.075, 0.01, max_throttle, max_break, 50);
+  //pid_throttle.Init(0.25, 0.05, 0.1, max_throttle, max_break, 10); // GREAT!!!
+  //pid_throttle.Init(0.25, 0.05, 0.1, max_throttle, max_break, 10);
+  //pid_throttle.Init(0.25, 0.05, 0.1, max_throttle, max_break, 10); // GREAT!!! (11 MINUTES)
+  //pid_throttle.Init(0.20, 0.05, 0.1, max_throttle, max_break, 10);
+  //pid_throttle.Init(0.2, 0.05, 0.2, max_throttle, max_break, 10); // good turn but too much
+  //pid_throttle.Init(0.1, 0.05, 0.1, max_throttle, max_break, 10); // too low
+  //pid_throttle.Init(0.2, 0.1, 0.1, max_throttle, max_break, 10); // good turn but too much
+  //pid_throttle.Init(0.2, 0.05, 0.1, max_throttle, max_break, 10); // good timing
+  //pid_throttle.Init(0.2, 0.05, 0.1, max_throttle, max_break, 10); // great turn and timing
+  //pid_throttle.Init(0.2, 0.05, 0.1, max_throttle, max_break, 10);
+  //pid_throttle.Init(0.25, 0.05, 0.1, max_throttle, max_break, 10); // 22 minutes!!!
+  //pid_throttle.Init(0.25, 0.05, 0.1, max_throttle, max_break, 10); // perfect turn
+  //pid_throttle.Init(0.25, 0.02, 0.1, max_throttle, max_break, 10); // good enough for speed control and turns
+  //pid_throttle.Init(0.25, 0.02, 0.1, max_throttle, max_break); // ORIGINAL
+  //pid_throttle.Init(0.25, 0.02, 0.2, max_throttle, max_break);
+  //pid_throttle.Init(0.3, 0.02, 0.2, max_throttle, max_break);
+  //pid_throttle.Init(0.4, 0.02, 0.2, max_throttle, max_break);
+  //pid_throttle.Init(0.35, 0.01, 0.2, max_throttle, max_break);
+  //pid_throttle.Init(0.35, 0.01, 0.2, max_throttle, max_break);
+  //pid_throttle.Init(0.25, 0.01, 0.1, max_throttle, max_break);
+  //pid_throttle.Init(0.25, 0.01, 0.05, max_throttle, max_break);
+  pid_throttle.Init(0.35, 0.01, 0.2, max_throttle, max_break); //25 minutes!
+```
 
 ## PID controller is a model free controller, i.e. it does not use a model of the car. Could you explain the pros and cons of this type of controller? Find at least 2 pros and cons for model free versus model based.
 
