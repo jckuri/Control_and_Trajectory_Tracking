@@ -393,7 +393,7 @@ Spirals and waypoints disappear and reappear in a discontinuous way, pointing to
 
 ## Division by zero when waypoints gather to the same location
 
-A division by zero occurs when waypoints gather to the same location. I already correct this bug in the `simulatorAPI.py` with this Python code:
+A division by zero occurs when waypoints gather to the same location. I already corrected this bug with this Python code:
 
 `simulatorAPI.py`
 ```
