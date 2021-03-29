@@ -269,7 +269,7 @@ How would you design a way to automatically tune the PID parameters? Obviously, 
 ## PID controller is a model free controller, i.e. it does not use a model of the car. Could you explain the pros and cons of this type of controller? Find at least 2 pros and cons for model free versus model based.
 
 Pros:
-1. Model-free PID controllers are already conceived. And we just need to tune them. So, we skip the modelling part.
+1. Model-free PID controllers are already conceived. And we just need to tune them. So, we skip the modeling part.
 2. In spite of its simplicity, model-free PID controllers work if you tune them properly. 
 3. Model-free PID controllers understand the nature of differential equations. Because they adapt proportionally to the error; prevent overshooting through the derivative term; and integrate the constant errors of the system. Differential equations are everywhere in the universe and in nature. So, PID controllers are universal in nature.
 4. The other approach, modeling the car and its dynamics requires an advanced understanding of differential equations and how to solve them. 
