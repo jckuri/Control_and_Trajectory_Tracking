@@ -165,6 +165,12 @@ Given that the visibility of the plots deteriorates when the demos are too long,
 https://youtu.be/GwLt8-gqQ4A**
 ![Short demo with plots](/plots/short_demo_with_plots.png)
 
+I generated the following plots by using a Python script I programmed:
+
+```
+python plot_pid_info.py
+```
+
 As you can see in the video, the car experiences some turbulence at the beginning, due to the nature of the PID controllers that I will explain later. In brief, the car experiences some turbulence when the car is behind the waypoints. As soon as the car reaches the waypoints, it gets more control over the situation. The car also experienced an offset when turning the corner at the end of the street. After that, the car moves smoothly and in a controlled way.
 
 **Steering Plot**<br/>
