@@ -274,7 +274,11 @@ How would you design a way to automatically tune the PID parameters? Obviously, 
 
 As the instructor suggested, another idea is to create a feedback loop system where the PID is slightly changing the parameters depending on the performances or error metrics. At the meta level, PID is an open loop controller <https://en.wikipedia.org/wiki/Open-loop_controller> because it does not have error feedback. If we want to minimize the errors of the PID controller, we need to close the loop by providing error feedback. So, we can slightly change the PID parameters and select those parameters which generate lesser errors. The best PID parameters are saved in a file. So, the PID controller gets better and better with more experiences. Optimization is a machine learning technique.
 
-These 2 techniques are very similar. The first technique is done with entire trajectories. And the second technique is done in realtime with a feedback loop system. Unfortunately, there are no video lectures explaining the second technique, yet. There are no video lectures in the "Lesson 6. Control" of the Self Driving Car Engineer Beta Nanodegree Program <https://classroom.udacity.com/nanodegrees/nd013beta/parts/60d6f38c-c128-4d1c-997f-b5b762513b33>
+These 2 techniques proposed are very similar. The first technique is done with entire trajectories. And the second technique is done with smaller trajectories in realtime with a feedback loop system. Unfortunately, there are no video lectures explaining the second technique, yet. There are no video lectures in the "Lesson 6. Control" of the Self Driving Car Engineer Beta Nanodegree Program <https://classroom.udacity.com/nanodegrees/nd013beta/parts/60d6f38c-c128-4d1c-997f-b5b762513b33>
+
+I found a video lecture of Prof. Sebastian Thrun explaining this optimization process:
+Twiddle Algorithm - Artificial Intelligence for Robotics
+https://www.youtube.com/watch?v=2uQ2BSzDvXs
 
 ## PID controller is a model free controller, i.e. it does not use a model of the car. Could you explain the pros and cons of this type of controller? Find at least 2 pros and cons for model free versus model based.
 
