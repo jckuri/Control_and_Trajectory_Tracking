@@ -276,10 +276,8 @@ How would you design a way to automatically tune the PID parameters? Obviously, 
 
 Pros:
 1. Model-free PID controllers are already conceived. And we just need to tune them. So, we skip the modeling part.
-2. In spite of its simplicity, model-free PID controllers work if you tune them properly. 
-3. Model-free PID controllers understand the nature of differential equations. Because they adapt proportionally to the error; prevent overshooting through the derivative term; and integrate the constant errors of the system. Differential equations are everywhere in the universe and in nature. So, PID controllers are universal in nature.
-4. The other approach, modeling the car and its dynamics requires an advanced understanding of differential equations and how to solve them. 
-5. Sometimes models and their differential equations can be so complex that only a handful of people in the world can solve them.
+2. Model-free PID controllers understand the nature of differential equations. Because they adapt proportionally to the error; prevent overshooting through the derivative term; and integrate the constant errors of the system. Differential equations are everywhere in the universe and in nature. So, model-free PID controllers can be applied to a big variety of control problems, in spite of its simplicity.
+3. The other approach, modeling the car and its dynamics requires an advanced understanding of differential equations and how to solve them. Sometimes models and their differential equations can be so complex that only a handful of people in the world can solve them.
 
 Cons:
 1. Sometimes tuning the parameters until getting perfect results is hard, if not impossible.
